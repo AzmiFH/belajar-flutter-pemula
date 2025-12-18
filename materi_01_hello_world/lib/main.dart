@@ -3,7 +3,7 @@ import 'StatelessWidget dan StatefulWidget/headingStatelessWidget.dart';
 import 'StatelessWidget dan StatefulWidget/StatefulWidget.dart';
 
 void main() {
-  runApp(MyApp());
+ runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

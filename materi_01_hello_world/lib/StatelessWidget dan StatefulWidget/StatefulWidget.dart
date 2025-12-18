@@ -26,6 +26,14 @@ class _BiggerTextState extends State<BiggerText> {
             });
           },
         ),
+        ElevatedButton(
+          child: const Text("Perkecil"),
+          onPressed: () {
+            setState(() {
+              _textSize = 10.0;
+            });
+          },
+        ),
       ],
     );
   }
