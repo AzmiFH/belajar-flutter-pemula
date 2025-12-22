@@ -5,9 +5,13 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Text title = const Text("Main Page");
-    AppBar appBar = AppBar(title: title);
-    Scaffold scaffold = Scaffold(appBar: appBar);
-    return scaffold;
-  }
+
+    return Scaffold(
+      appBar: AppBar(
+      title: const Text("Main Page utama")), 
+      body: const Center(
+        child: Text("hallooo ini aku"),
+    ),
+  );
+    }
 }

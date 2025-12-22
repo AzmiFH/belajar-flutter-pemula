@@ -1,17 +1,22 @@
-import 'package:flutter/material.dart';
 
-class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+
+import 'package:flutter/material.dart';
+import 'package:materiyt_01_aplikasipertama/main_page.dart';
+
+void main() {
+
+  runApp(const mainApp());
+}
+
+class mainApp extends StatelessWidget {
+  const mainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-      appBar: AppBar(
-      title: const Text("Main Page utama")), 
-      body: const Center(
-        child: Text("hallooo ini aku"),
-    ),
-  );
-    }
+    return MaterialApp(
+      home: const MainPage(),
+    );
+  }
 }
+
