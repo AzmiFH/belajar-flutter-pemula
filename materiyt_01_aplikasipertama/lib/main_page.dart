@@ -22,8 +22,19 @@ class MainPage extends StatelessWidget {
         ),
         // PERBAIKAN: Tambahkan penutup ')' untuk AppBar
       ),
+      body: Container(
+        color: Colors.white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: const <Widget>[
+            Icon(Icons.share),
+            Icon(Icons.thumb_up),
+            Icon(Icons.thumb_down),
+          ],
+        ),
+      ),
       // PERBAIKAN: Indentasi body agar sejajar dengan appBar
-      body: const Center(child: Text("hallooo ini aku")),
+      //body: const Center(child: Text("hallooo ini aku")),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: Colors.blue,
