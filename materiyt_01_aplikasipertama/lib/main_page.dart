@@ -8,6 +8,13 @@ class MainPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+      actions: [IconButton(
+        icon: const Icon(Icons.search,
+        color: Colors.white,
+        ),
+        onPressed: (){},
+        ),
+        ],
       title: const Text("Main Page utama")), 
       body: const Center(
         child: Text("hallooo ini aku"),
