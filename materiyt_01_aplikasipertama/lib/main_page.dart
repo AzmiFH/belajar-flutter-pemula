@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:materiyt_01_aplikasipertama/SecondPage.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -26,10 +27,26 @@ class MainPage extends StatelessWidget {
         color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const <Widget>[
-            Icon(Icons.share),
-            Icon(Icons.thumb_up),
-            Icon(Icons.thumb_down),
+          children: <Widget>[
+            const Icon(Icons.share),
+            const Icon(Icons.thumb_up),
+            const Icon(Icons.thumb_down),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.volume_up),
+              tooltip: "Volume UP",
+            ),
+            //ini adalah button
+            ElevatedButton(
+              child: const Text("tekan"),
+              onPressed: () {
+                print("pindah halaman");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                );
+              },
+            ),
           ],
         ),
       ),
