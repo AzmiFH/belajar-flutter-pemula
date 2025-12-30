@@ -20,7 +20,7 @@ class DetailScreen extends StatelessWidget {
                 child: const Text(
                   'Farm House Lembang',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 30.0, fontFamily: 'Staatliches'),
                 ),
               ),
 
@@ -64,10 +64,33 @@ class DetailScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 16.0),
                 ),
               ),
-
-              // 5. Gambar Footer
-              Image.network(
+              SizedBox(
+                height: 150,
+                 child :ListView(
+                  scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  Padding(
+                    padding:  EdgeInsets.all(4.0),
+                    child: Image.network(
                 'https://media-cdn.tripadvisor.com/media/photo-s/0d/7c/59/70/farmhouse-lembang.jpg',
+              ),
+            ),
+             Padding(
+                    padding:  EdgeInsets.all(4.0),
+                    child: Image.network(
+                 'https://media-cdn.tripadvisor.com/media/photo-w/13/f0/22/f6/photo3jpg.jpg',
+              ),
+            ),
+             Padding(
+                    padding:  EdgeInsets.all(4.0),
+                    child: Image.network(
+                'https://media-cdn.tripadvisor.com/media/photo-m/1280/16/a9/33/43/liburan-di-farmhouse.jpg',
+              ),
+            ),
+            
+
+                ],
+              ),
               ),
             ], // <--- PENUTUP CHILDREN (List Widget) PINDAH KE SINI
           ), // <--- PENUTUP COLUMN PINDAH KE SINI
