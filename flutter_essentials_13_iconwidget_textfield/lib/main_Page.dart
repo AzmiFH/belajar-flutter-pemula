@@ -16,7 +16,18 @@ appBar: AppBar(
   title: Text("icon widget"),
 ),
 body: const Center(
-  child: Icon(Icons.home),
+  child: Icon(Icons.home,
+  size: 80,
+  color: Colors.blue,
+  shadows: [
+    Shadow(
+      offset: Offset(3, 3),
+      blurRadius: 8,
+      color: Colors.black,
+
+    ),
+
+  ],),
 ),
     );
   }
