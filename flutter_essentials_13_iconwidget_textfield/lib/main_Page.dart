@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -13,22 +15,40 @@ class _MyWidgetState extends State<MainPage> {
     return Scaffold(
 appBar: AppBar(
   backgroundColor: Colors.grey.shade300,
-  title: Text("icon widget"),
+  title: Text("icon widget dan textfiled"),
 ),
-body: const Center(
-  child: Icon(Icons.home,
-  size: 80,
-  color: Colors.blue,
-  shadows: [
-    Shadow(
-      offset: Offset(3, 3),
-      blurRadius: 8,
-      color: Colors.black,
+body: Column(
+  children: [
+    TextField(
 
     ),
+    TextField(
+      //untuk password
+      obscureText: true,
+      //mengcustom hide char
+      obscuringCharacter: '#',
+    ),
+  ],
 
-  ],),
 ),
+//[ini icon widget]
+// Center(
+
+//   // child: Icon(
+//   // MdiIcons.headset,
+//   // size: 80,
+//   // color: Colors.blue,
+//   // shadows: const [
+//   //   Shadow( 
+//   //     offset: Offset(3, 3),
+//   //     blurRadius: 8,
+//   //     color: Colors.black,
+
+//   //   ), 
+
+//   // ],),
+// ),
+
     );
   }
 }
