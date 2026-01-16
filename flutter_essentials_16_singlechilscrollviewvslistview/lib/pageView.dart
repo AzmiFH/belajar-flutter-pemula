@@ -55,11 +55,11 @@ class _MyWidgetState extends State<pageView> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [ElevatedButton(onPressed: (){
-                  if((pageController.page ?? 0) <= 1){
-                    pageController.nextPage(
+                  if((pageController.page ?? 0) > 0){
+                    pageController.previousPage(
                       duration: const Duration(
                         milliseconds: 300
-                      ), curve: Curves.bounceIn);
+                      ), curve: Curves.easeIn);
 
                   }
                 }, child: const Text(
@@ -69,12 +69,21 @@ class _MyWidgetState extends State<pageView> {
                 ElevatedButton(onPressed: (){
                   pageController.animateToPage(0, duration: Duration(
                     milliseconds: 300
-                  ), curve: Curves.bounceIn);
+                  ), curve: Curves.easeIn);
                 }, child: const Text(
                   'home'
                 ),
                 ),
-                ElevatedButton(onPressed: (){}, child: const Text(
+                ElevatedButton(onPressed: (){
+                  if((pageController.page ?? 0) < 4){
+                    pageController.nextPage(
+                      duration: const Duration(
+                        milliseconds: 300
+                      ), curve: Curves.easeIn);
+
+                  }
+
+                }, child: const Text(
                   'next'
                 ),
                 ),
