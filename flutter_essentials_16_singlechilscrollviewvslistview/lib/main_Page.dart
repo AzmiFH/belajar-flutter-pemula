@@ -15,20 +15,28 @@ class _MyWidgetState extends State<MainPage> {
         backgroundColor: Colors.white,
         title: Text('singlescroll dan pageview'),
       ),
-      body:  Column(
+      //SingleChildScrollView( //membungkus column dengan singlescroll agar bisa scroll item
+      // scrollDirection: Axis.horizontal, //untuk scroll ke samping dengan child row
+      body:  ListView(
         children: createContainer(),
       ),
     );
   }
   List<Widget> createContainer()  =>
-  List.generate(5, (index) => Container(
-    margin: const EdgeInsets.all(20),
-    width: 100, height: 100,
-    color: Colors.red,
-    child: Center(
-      child: Text(index.toString(),style: const TextStyle(
-        fontWeight: FontWeight.bold, fontSize: 30
-      ),),
-    ),
+  List.generate(10, (index) => Builder(
+    builder: (context) {
+      return UnconstrainedBox(
+        child: Container(
+          margin: const EdgeInsets.all(20),
+          width: 100, height: 100,
+          color: Colors.red,
+          child: Center(
+            child: Text(index.toString(),style: const TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 30
+            ),),
+          ),
+        ),
+      );
+    }
   ));
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'pageView.dart';
 import 'main_Page.dart'; // <--- PENTING: Panggil file temannya
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: MainPage(), // <--- Panggil Class dari file sebelah
+      home: pageView() // <--- Panggil Class dari file sebelah
     );
   }
 }
