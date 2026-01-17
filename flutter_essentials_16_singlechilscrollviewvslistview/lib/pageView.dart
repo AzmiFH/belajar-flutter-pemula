@@ -24,6 +24,7 @@ class _MyWidgetState extends State<pageView> {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
+<<<<<<< HEAD
             // children: [
             //   Center(
             //     child: Text("Page 1",
@@ -37,6 +38,41 @@ class _MyWidgetState extends State<pageView> {
             //     child: Text("Page 3",
             //     style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
             //   ),
+=======
+         
+          ),
+         // children: [
+          //   Center(
+          //     child: Text("Page 1",
+          //     style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+          //   ),
+          //   Center(
+          //     child: Text("Page 2",
+          //     style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+          //   ),
+          //   Center(
+          //     child: Text("Page 3",
+          //     style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+          //   ),
+         
+          // ],
+         ),
+         Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            height: 60,
+            width: double.infinity,
+            color: Colors.teal.shade100,
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [ElevatedButton(onPressed: (){
+                  if((pageController.page ?? 0) > 0){
+                    pageController.previousPage(
+                      duration: const Duration(
+                        milliseconds: 300
+                      ), curve: Curves.easeIn);
+>>>>>>> a1d46c96bd939ea917da249cbd8ea1f951d12420
 
             // ],
           ),
@@ -74,6 +110,32 @@ class _MyWidgetState extends State<pageView> {
                     ElevatedButton(onPressed: () {}, child: const Text('next')),
                   ],
                 ),
+<<<<<<< HEAD
+=======
+                ),
+                ElevatedButton(onPressed: (){
+                  pageController.animateToPage(0, duration: Duration(
+                    milliseconds: 300
+                  ), curve: Curves.easeIn);
+                }, child: const Text(
+                  'home'
+                ),
+                ),
+                ElevatedButton(onPressed: (){
+                  if((pageController.page ?? 0) < 4){
+                    pageController.nextPage(
+                      duration: const Duration(
+                        milliseconds: 300
+                      ), curve: Curves.easeIn);
+
+                  }
+
+                }, child: const Text(
+                  'next'
+                ),
+                ),
+                ],
+>>>>>>> a1d46c96bd939ea917da249cbd8ea1f951d12420
               ),
             ),
           ),
