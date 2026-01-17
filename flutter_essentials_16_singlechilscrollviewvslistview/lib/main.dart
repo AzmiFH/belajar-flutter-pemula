@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pageView.dart';
-import 'main_Page.dart'; // <--- PENTING: Panggil file temannya
+// <--- PENTING: Panggil file temannya
 
 void main() {
   runApp(const MyApp());
