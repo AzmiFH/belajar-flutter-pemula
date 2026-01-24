@@ -23,7 +23,7 @@ class MainScreen extends StatelessWidget {
                     style: const TextStyle(fontSize: 16.0),
                   ),
                   const SizedBox(height: 10),
-                  Text('lembang'),
+                  Text('cimahi'),
                 ],
               ),
             ),
