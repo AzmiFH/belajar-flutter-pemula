@@ -1,4 +1,4 @@
-package com.example.codelab3_menampilkan_daftar_tempat_wisata
+package com.example.codelab2_perbaikan_tampilan_aplikasi
 
 import io.flutter.embedding.android.FlutterActivity
 

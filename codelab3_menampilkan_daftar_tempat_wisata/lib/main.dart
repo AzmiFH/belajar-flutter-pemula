@@ -1,6 +1,5 @@
-import 'package:codelab3_menampilkan_daftar_tempat_wisata/main_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:codelab3_menampilkan_daftar_tempat_wisata/DetailScreen.dart';
+import 'package:codelab2_perbaikan_tampilan_aplikasi/DetailScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Wisata Bandung',
       theme: ThemeData(),
-      home: const MainScreen(),
+      home: const DetailScreen(),
     );
   }
 }

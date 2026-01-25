@@ -1,4 +1,4 @@
-# codelab3_menampilkan_daftar_tempat_wisata
+# codelab2_perbaikan_tampilan_aplikasi
 
 A new Flutter project.
 
