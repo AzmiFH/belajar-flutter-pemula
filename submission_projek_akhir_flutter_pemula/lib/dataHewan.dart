@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class Animal {
   final String name;
-  final String phonetic; // Cara baca
+  final String phonetic;
   final Color color;
-  final IconData iconData; // Nanti ganti String imagePath jika sudah ada gambar
+  final IconData iconData;
   final String? imagePath;
   final String funFact;
   final String description;
@@ -32,7 +32,7 @@ final List<Animal> animalList = [
   Animal(
     name: "Singa",
     phonetic: "Panthera leo",
-    color: const Color(0xFFFFE082), // Kuning
+    color: const Color(0xFFFFE082),
     iconData: Icons.pets,
     imagePath: 'assets/images/iconsinga.png',
     funFact: "Singa adalah satu-satunya kucing besar yang hidup berkelompok.",
@@ -46,7 +46,7 @@ final List<Animal> animalList = [
   Animal(
     name: "Beruang Coklat",
     phonetic: "Ursus arctos",
-    color: const Color(0xFFD7CCC8), // Coklat Muda
+    color: const Color(0xFFD7CCC8),
     iconData: Icons.forest,
     imagePath: 'assets/images/iconberuang.png',
     funFact: "Beruang coklat memiliki punuk otot di bahu untuk menggali tanah.",
@@ -60,7 +60,7 @@ final List<Animal> animalList = [
   Animal(
     name: "Gajah",
     phonetic: "Elephantidae",
-    color: const Color(0xFF81D4FA), // Biru
+    color: const Color(0xFF81D4FA),
     iconData: Icons.water,
     imagePath: 'assets/images/icongajah.png',
     funFact: "Gajah bisa mengenali dirinya sendiri saat bercermin.",
@@ -74,7 +74,7 @@ final List<Animal> animalList = [
   Animal(
     name: "Burung Hantu",
     phonetic: "Strigiformes",
-    color: const Color(0xFF90A4AE), // Blue Grey
+    color: const Color(0xFF90A4AE),
     iconData: Icons.nightlight_round,
     imagePath: 'assets/images/iconburunghantu.png',
     funFact: "Burung hantu bisa memutar kepalanya hingga 270 derajat.",

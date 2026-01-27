@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Wisata Bandung',
       theme: ThemeData(),
-      home: const welcomeScreen(),
+      home: const WelcomeScreen(),
     );
   }
 }

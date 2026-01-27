@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:submission_projek_akhir_flutter_pemula/HomePage.dart';
 import 'package:submission_projek_akhir_flutter_pemula/cont_image.dart';
 
-class welcomeScreen extends StatefulWidget {
-  const welcomeScreen({super.key});
+class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({super.key});
 
   @override
-  State<welcomeScreen> createState() => _welcomeScreenState();
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
-class _welcomeScreenState extends State<welcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen> {
   final PageController controller = PageController();
   bool isLastPage = false;
 
@@ -29,9 +30,7 @@ class _welcomeScreenState extends State<welcomeScreen> {
           controller: controller,
           onPageChanged: (index) {
             setState(() {
-              isLastPage =
-                  index ==
-                  2; // Halaman terakhir adalah index 2 (karena ada 3 halaman)
+              isLastPage = index == 2;
             });
           },
           children: [
@@ -96,11 +95,15 @@ class _welcomeScreenState extends State<welcomeScreen> {
 
             isLastPage
                 ? ElevatedButton(
-                    onPressed: () {
-                      // Navigasi ke halaman Home atau Login
+                    onPressed: () async {
+                      final prefs = await SharedPreferences.getInstance();
+                      await prefs.setBool('hasSeenOnboarding', true);
+
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => Homepage()),
+                        MaterialPageRoute(
+                          builder: (context) => const AnimalGridPage(),
+                        ),
                       );
                     },
                     style: ElevatedButton.styleFrom(

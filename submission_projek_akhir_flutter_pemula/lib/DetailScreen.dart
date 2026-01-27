@@ -51,7 +51,6 @@ class DetailMobilePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             children: [
-              // JUDUL BESAR
               Text(
                 animal.name,
                 style: const TextStyle(
@@ -60,7 +59,6 @@ class DetailMobilePage extends StatelessWidget {
                 ),
               ),
 
-              // TEKS FONETIK
               Text(
                 animal.phonetic,
                 style: TextStyle(
@@ -72,7 +70,6 @@ class DetailMobilePage extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // --- BANNER GAMBAR + TOMBOL SUARA ---
               Hero(
                 tag: animal.name,
                 child: Container(
@@ -158,7 +155,6 @@ class DetailMobilePage extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // FUN FACT
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
@@ -178,7 +174,6 @@ class DetailMobilePage extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // DESKRIPSI
               Text(
                 animal.description,
                 textAlign: TextAlign.justify,
@@ -190,7 +185,6 @@ class DetailMobilePage extends StatelessWidget {
               ),
               const SizedBox(height: 30),
 
-              // KEY FACTS
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(

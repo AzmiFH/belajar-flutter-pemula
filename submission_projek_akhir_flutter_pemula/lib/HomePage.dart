@@ -2,48 +2,174 @@ import 'package:flutter/material.dart';
 import 'package:submission_projek_akhir_flutter_pemula/DetailScreen.dart';
 import 'package:submission_projek_akhir_flutter_pemula/dataHewan.dart';
 
-class Homepage extends StatelessWidget {
-  const Homepage({super.key});
+class AnimalGridPage extends StatefulWidget {
+  const AnimalGridPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Dunia Hewan',
-      theme: ThemeData(useMaterial3: true),
-      home: const AnimalGridPage(),
-    );
-  }
+  State<AnimalGridPage> createState() => _AnimalGridPageState();
 }
 
-class AnimalGridPage extends StatelessWidget {
-  const AnimalGridPage({super.key});
+class _AnimalGridPageState extends State<AnimalGridPage> {
+  List<Animal> _foundAnimals = [];
+  bool _isSearching = false;
+  final TextEditingController _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _foundAnimals = animalList;
+  }
+
+  void _runFilter(String enteredKeyword) {
+    List<Animal> results = [];
+    if (enteredKeyword.isEmpty) {
+      results = animalList;
+    } else {
+      results = animalList
+          .where(
+            (animal) => animal.name.toLowerCase().contains(
+              enteredKeyword.toLowerCase(),
+            ),
+          )
+          .toList();
+    }
+
+    setState(() {
+      _foundAnimals = results;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-        backgroundColor: Colors.orange,
-        elevation: 0,
-        title: const Text(
-          "Dunia Hewan",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: GridView.builder(
-          itemCount: animalList.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, // 2 Kolom
-            childAspectRatio: 0.8, // Agar kotak agak tinggi
-            crossAxisSpacing: 16,
-            mainAxisSpacing: 16,
-          ),
-          itemBuilder: (context, index) {
-            return _buildAnimalCard(context, animalList[index]);
-          },
+      body: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24.0,
+                vertical: 30.0,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _isSearching
+                      ? Expanded(
+                          child: Container(
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(25),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.05),
+                                  blurRadius: 10,
+                                  offset: const Offset(0, 4),
+                                ),
+                              ],
+                            ),
+                            child: TextField(
+                              controller: _searchController,
+                              onChanged: (value) => _runFilter(value),
+                              autofocus: true,
+                              decoration: const InputDecoration(
+                                hintText: 'Cari hewan...',
+                                border: InputBorder.none,
+                                contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 20,
+                                  vertical: 14,
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      : const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Dunia",
+                              style: TextStyle(
+                                fontSize: 32,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                height: 1.0,
+                              ),
+                            ),
+                            Text(
+                              "Hewan",
+                              style: TextStyle(
+                                fontSize: 32,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                height: 1.2,
+                              ),
+                            ),
+                          ],
+                        ),
+
+                  if (_isSearching) const SizedBox(width: 16),
+
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.05),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: IconButton(
+                      icon: Icon(
+                        _isSearching ? Icons.close : Icons.search,
+                        size: 28,
+                      ),
+                      color: Colors.black,
+                      onPressed: () {
+                        setState(() {
+                          if (_isSearching) {
+                            _isSearching = false;
+                            _searchController.clear();
+                            _foundAnimals = animalList;
+                          } else {
+                            _isSearching = true;
+                          }
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: _foundAnimals.isEmpty
+                    ? const Center(child: Text("Hewan tidak ditemukan"))
+                    : GridView.builder(
+                        itemCount: _foundAnimals.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              childAspectRatio: 0.8,
+                              crossAxisSpacing: 16,
+                              mainAxisSpacing: 16,
+                            ),
+                        itemBuilder: (context, index) {
+                          return _buildAnimalCard(
+                            context,
+                            _foundAnimals[index],
+                          );
+                        },
+                      ),
+              ),
+            ),
+          ],
         ),
       ),
     );
