@@ -110,10 +110,22 @@ class DetailMobilePage extends StatelessWidget {
                           color: Colors.transparent,
                           child: InkWell(
                             onTap: () async {
+                              final player = AudioPlayer();
                               if (animal.name == 'Gajah') {
-                                final player = AudioPlayer();
                                 await player.play(
                                   AssetSource('audio/suaragajah.mp3'),
+                                );
+                              } else if (animal.name == 'Singa') {
+                                await player.play(
+                                  AssetSource('audio/suarasinga.mp3'),
+                                );
+                              } else if (animal.name == 'Beruang Coklat') {
+                                await player.play(
+                                  AssetSource('audio/suaraberuang.mp3'),
+                                );
+                              } else if (animal.name == 'Burung Hantu') {
+                                await player.play(
+                                  AssetSource('audio/suaraburunghantu.mp3'),
                                 );
                               }
                             },
@@ -201,6 +213,48 @@ class DetailMobilePage extends StatelessWidget {
               const SizedBox(height: 15),
               _buildFactItem("04", "Makanan", animal.diet, Colors.redAccent),
 
+              if (animal.name == 'Singa') ...[
+                const SizedBox(height: 20),
+                SizedBox(
+                  height: 150,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lion_waiting_in_Namibia.jpg/640px-Lion_waiting_in_Namibia.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Okonjima_Lioness.jpg/640px-Okonjima_Lioness.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/002_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg/640px-002_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+
               if (animal.name == 'Gajah') ...[
                 const SizedBox(height: 20),
                 SizedBox(
@@ -234,6 +288,90 @@ class DetailMobilePage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
                             'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/African_elephant_%28Loxodonta_africana%29_3.jpg/640px-African_elephant_%28Loxodonta_africana%29_3.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+
+              if (animal.name == 'Beruang Coklat') ...[
+                const SizedBox(height: 20),
+                SizedBox(
+                  height: 150,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/2010-kodiak-bear-1.jpg/640px-2010-kodiak-bear-1.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Eurasian_brown_bear_%28Ursus_arctos_arctos%29_cub_14_months.jpg/640px-Eurasian_brown_bear_%28Ursus_arctos_arctos%29_cub_14_months.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/European_Brown_Bear.jpg/640px-European_Brown_Bear.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+
+              if (animal.name == 'Burung Hantu') ...[
+                const SizedBox(height: 20),
+                SizedBox(
+                  height: 150,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Asian_Barred_Owlet_in_Kaziranga_National_Park_March_2025_by_Tisha_Mukherjee_01.jpg/640px-Asian_Barred_Owlet_in_Kaziranga_National_Park_March_2025_by_Tisha_Mukherjee_01.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Strigiformes_in_Iran_02.jpg/640px-Strigiformes_in_Iran_02.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Asian_Barred_Owlet_in_Kaziranga_National_Park_March_2025_by_Tisha_Mukherjee_02.jpg/640px-Asian_Barred_Owlet_in_Kaziranga_National_Park_March_2025_by_Tisha_Mukherjee_02.jpg',
                             fit: BoxFit.cover,
                           ),
                         ),

@@ -31,9 +31,10 @@ class Animal {
 final List<Animal> animalList = [
   Animal(
     name: "Singa",
-    phonetic: "['si-nga]",
+    phonetic: "Panthera leo",
     color: const Color(0xFFFFE082), // Kuning
     iconData: Icons.pets,
+    imagePath: 'assets/images/iconsinga.png',
     funFact: "Singa adalah satu-satunya kucing besar yang hidup berkelompok.",
     description:
         "Dijuluki sebagai 'Raja Hutan', singa hidup di padang rumput Afrika yang luas. Singa jantan memiliki rambut tebal (surai) di lehernya agar terlihat gagah.",
@@ -43,21 +44,22 @@ final List<Animal> animalList = [
     diet: "Daging",
   ),
   Animal(
-    name: "Beruang",
-    phonetic: "['be-ru-ang]",
-    color: const Color(0xFFE1BEE7), // Ungu
-    iconData: Icons.ac_unit,
-    funFact: "Kulit beruang kutub sebenarnya hitam, bukan putih lho!",
+    name: "Beruang Coklat",
+    phonetic: "Ursus arctos",
+    color: const Color(0xFFD7CCC8), // Coklat Muda
+    iconData: Icons.forest,
+    imagePath: 'assets/images/iconberuang.png',
+    funFact: "Beruang coklat memiliki punuk otot di bahu untuk menggali tanah.",
     description:
-        "Beruang kutub tinggal di daerah es yang sangat dingin di kutub utara. Mereka adalah perenang yang sangat handal.",
-    weight: "450 kg",
-    height: "2.4 m",
-    lifespan: "25-30 Tahun",
-    diet: "Daging",
+        "Beruang coklat adalah hewan kuat yang hidup di hutan dan pegunungan. Mereka suka makan ikan, buah beri, dan madu.",
+    weight: "600 kg",
+    height: "2.8 m",
+    lifespan: "20-30 Tahun",
+    diet: "Omnivora",
   ),
   Animal(
     name: "Gajah",
-    phonetic: "['ga-jah]",
+    phonetic: "Elephantidae",
     color: const Color(0xFF81D4FA), // Biru
     iconData: Icons.water,
     imagePath: 'assets/images/icongajah.png',
@@ -70,16 +72,17 @@ final List<Animal> animalList = [
     diet: "Tumbuhan",
   ),
   Animal(
-    name: "Gurita",
-    phonetic: "['gu-ri-ta]",
-    color: const Color(0xFFB39DDB), // Ungu Tua
-    iconData: Icons.bubble_chart,
-    funFact: "Gurita punya 3 jantung dan darahnya berwarna biru.",
+    name: "Burung Hantu",
+    phonetic: "Strigiformes",
+    color: const Color(0xFF90A4AE), // Blue Grey
+    iconData: Icons.nightlight_round,
+    imagePath: 'assets/images/iconburunghantu.png',
+    funFact: "Burung hantu bisa memutar kepalanya hingga 270 derajat.",
     description:
-        "Gurita adalah hewan laut cerdas dengan delapan lengan. Karena tidak punya tulang, mereka bisa menyelinap ke celah sempit.",
-    weight: "50 kg",
-    height: "4.3 m",
-    lifespan: "3-5 Tahun",
-    diet: "Ikan",
+        "Burung hantu adalah burung pemangsa yang aktif pada malam hari (nokturnal). Mereka memiliki mata besar yang menghadap ke depan.",
+    weight: "1.5 kg",
+    height: "50 cm",
+    lifespan: "10-20 Tahun",
+    diet: "Karnivora",
   ),
 ];
