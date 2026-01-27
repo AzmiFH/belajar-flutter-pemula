@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:submission_projek_akhir_flutter_pemula/HomePage.dart';
 import 'package:submission_projek_akhir_flutter_pemula/welcome_screen.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final prefs = await SharedPreferences.getInstance();
+  final bool hasSeenOnboarding = prefs.getBool('hasSeenOnboarding') ?? false;
+
+  runApp(MyApp(hasSeenOnboarding: hasSeenOnboarding));
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool hasSeenOnboarding;
+
+  const MyApp({super.key, required this.hasSeenOnboarding});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Wisata Bandung',
-      theme: ThemeData(),
-      home: const WelcomeScreen(),
+      debugShowCheckedModeBanner: false,
+      title: 'Dunia Hewan',
+      theme: ThemeData(useMaterial3: true),
+      home: hasSeenOnboarding ? const AnimalGridPage() : const WelcomeScreen(),
     );
   }
 }
