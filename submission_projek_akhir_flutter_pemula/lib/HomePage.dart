@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:submission_projek_akhir_flutter_pemula/DetailScreen.dart';
+import 'package:submission_projek_akhir_flutter_pemula/dataHewan.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -7,20 +9,11 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Preview Belajar Hewan',
+      title: 'Dunia Hewan',
       theme: ThemeData(useMaterial3: true),
       home: const AnimalGridPage(),
     );
   }
-}
-
-// MODEL DATA
-class Animal {
-  final String name;
-  final Color color;
-  final IconData iconData; // Pakai Icon dulu untuk Preview Web
-
-  Animal({required this.name, required this.color, required this.iconData});
 }
 
 class AnimalGridPage extends StatelessWidget {
@@ -28,103 +21,74 @@ class AnimalGridPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // DATA DUMMY (Warna Pastel sesuai desainmu)
-    final List<Animal> animals = [
-      Animal(
-        name: "Tiger",
-        color: const Color(0xFFFFE082),
-        iconData: Icons.pets,
-      ),
-      Animal(
-        name: "Polar Bear",
-        color: const Color(0xFFE1BEE7),
-        iconData: Icons.ac_unit,
-      ),
-      Animal(
-        name: "Elephant",
-        color: const Color(0xFF81D4FA),
-        iconData: Icons.water,
-      ),
-      Animal(
-        name: "Monkey",
-        color: const Color(0xFFA5D6A7),
-        iconData: Icons.emoji_nature,
-      ),
-      Animal(
-        name: "Owl",
-        color: const Color(0xFFFFAB91),
-        iconData: Icons.nightlight_round,
-      ),
-      Animal(
-        name: "Octopus",
-        color: const Color(0xFFB39DDB),
-        iconData: Icons.bubble_chart,
-      ),
-    ];
-
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.orange,
         elevation: 0,
         title: const Text(
-          "Popular Animals",
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          "Dunia Hewan",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search, color: Colors.black),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(16.0),
         child: GridView.builder(
-          itemCount: animals.length,
+          itemCount: animalList.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, // 2 Kolom
             childAspectRatio: 0.8, // Agar kotak agak tinggi
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20,
+            crossAxisSpacing: 16,
+            mainAxisSpacing: 16,
           ),
           itemBuilder: (context, index) {
-            return _buildAnimalCard(animals[index]);
+            return _buildAnimalCard(context, animalList[index]);
           },
         ),
       ),
     );
   }
 
-  Widget _buildAnimalCard(Animal animal) {
-    return Column(
-      children: [
-        // KOTAK WARNA (Rounded)
-        Expanded(
-          child: Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: animal.color,
-              borderRadius: BorderRadius.circular(24), // Sudut Tumpul
-            ),
-            child: Icon(
-              animal.iconData,
-              size: 50,
-              color: Colors.white.withOpacity(0.8),
-            ),
+  Widget _buildAnimalCard(BuildContext context, Animal animal) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return DetailScreen(animal: animal);
+            },
           ),
+        );
+      },
+      child: Card(
+        color: animal.color,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            animal.imagePath != null
+                ? Image.asset(
+                    animal.imagePath!,
+                    width: 110,
+                    height: 110,
+                    fit: BoxFit.contain,
+                    errorBuilder: (context, error, stackTrace) =>
+                        Icon(animal.iconData, size: 60, color: Colors.white),
+                  )
+                : Icon(animal.iconData, size: 60, color: Colors.white),
+            const SizedBox(height: 16),
+            Text(
+              animal.name,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
-        const SizedBox(height: 12),
-        // TEKS NAMA
-        Text(
-          animal.name,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Colors.black87,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
