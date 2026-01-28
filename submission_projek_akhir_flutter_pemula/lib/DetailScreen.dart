@@ -39,6 +39,19 @@ class DetailMobilePage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.bookmark_border, color: Colors.black),
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Fitur ini sedang dalam tahap pengembangan'),
+                  duration: Duration(seconds: 1),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -229,7 +242,7 @@ class DetailMobilePage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://images.pexels.com/photos/3651335/pexels-photo-3651335.jpeg',
+                            'https://images.pexels.com/photos/6052186/pexels-photo-6052186.jpeg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -239,7 +252,7 @@ class DetailMobilePage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/002_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg/640px-002_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg',
+                            'https://images.pexels.com/photos/6477379/pexels-photo-6477379.jpeg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -261,7 +274,7 @@ class DetailMobilePage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/African_Bush_Elephant.jpg/640px-African_Bush_Elephant.jpg',
+                            'https://images.pexels.com/photos/982021/pexels-photo-982021.jpeg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -271,7 +284,7 @@ class DetailMobilePage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Elephas_maximus_%28Bandipur%29.jpg/640px-Elephas_maximus_%28Bandipur%29.jpg',
+                            'https://images.pexels.com/photos/86413/elephant-africa-okavango-delta-animal-86413.jpeg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -281,7 +294,7 @@ class DetailMobilePage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/African_elephant_%28Loxodonta_africana%29_3.jpg/640px-African_elephant_%28Loxodonta_africana%29_3.jpg',
+                            'https://images.pexels.com/photos/11760859/pexels-photo-11760859.jpeg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -303,7 +316,7 @@ class DetailMobilePage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/2010-kodiak-bear-1.jpg/640px-2010-kodiak-bear-1.jpg',
+                            'https://images.pexels.com/photos/14382748/pexels-photo-14382748.jpeg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -313,7 +326,7 @@ class DetailMobilePage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Eurasian_brown_bear_%28Ursus_arctos_arctos%29_cub_14_months.jpg/640px-Eurasian_brown_bear_%28Ursus_arctos_arctos%29_cub_14_months.jpg',
+                            'https://images.pexels.com/photos/6780335/pexels-photo-6780335.jpeg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -323,7 +336,7 @@ class DetailMobilePage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/European_Brown_Bear.jpg/640px-European_Brown_Bear.jpg',
+                            'https://images.pexels.com/photos/35435/pexels-photo.jpg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -345,7 +358,7 @@ class DetailMobilePage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Asian_Barred_Owlet_in_Kaziranga_National_Park_March_2025_by_Tisha_Mukherjee_01.jpg/640px-Asian_Barred_Owlet_in_Kaziranga_National_Park_March_2025_by_Tisha_Mukherjee_01.jpg',
+                            'https://images.pexels.com/photos/8911173/pexels-photo-8911173.jpeg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -355,7 +368,7 @@ class DetailMobilePage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Strigiformes_in_Iran_02.jpg/640px-Strigiformes_in_Iran_02.jpg',
+                            'https://images.pexels.com/photos/2022648/pexels-photo-2022648.jpeg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -365,7 +378,7 @@ class DetailMobilePage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Asian_Barred_Owlet_in_Kaziranga_National_Park_March_2025_by_Tisha_Mukherjee_02.jpg/640px-Asian_Barred_Owlet_in_Kaziranga_National_Park_March_2025_by_Tisha_Mukherjee_02.jpg',
+                            'https://images.pexels.com/photos/2474014/pexels-photo-2474014.jpeg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -448,6 +461,19 @@ class DetailWebPage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.bookmark_border, color: Colors.black),
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Fitur ini sedang dalam tahap pengembangan'),
+                  duration: Duration(seconds: 1),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 64),
