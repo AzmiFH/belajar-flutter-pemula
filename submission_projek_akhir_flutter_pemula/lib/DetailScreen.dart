@@ -13,7 +13,7 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        if (constraints.maxWidth > 800) {
+        if (constraints.maxWidth > 1400) {
           return DetailWebPage(animal: animal);
         } else {
           return DetailMobilePage(animal: animal);
@@ -39,12 +39,6 @@ class DetailMobilePage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.bookmark_border, color: Colors.black),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -107,6 +101,12 @@ class DetailMobilePage extends StatelessWidget {
                           color: Colors.transparent,
                           child: InkWell(
                             onTap: () async {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('Suara ${animal.name} diputar'),
+                                  duration: const Duration(seconds: 1),
+                                ),
+                              );
                               final player = AudioPlayer();
                               if (animal.name == 'Gajah') {
                                 await player.play(
@@ -409,19 +409,24 @@ class DetailMobilePage extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 20),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              value,
-              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-            ),
-          ],
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                value,
+                style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -436,6 +441,14 @@ class DetailWebPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 64),
         child: Center(
@@ -463,25 +476,105 @@ class DetailWebPage extends StatelessWidget {
                                 color: animal.color,
                                 borderRadius: BorderRadius.circular(16),
                               ),
-                              child: animal.imagePath != null
-                                  ? Image.asset(
-                                      animal.imagePath!,
-                                      width: 300,
-                                      fit: BoxFit.contain,
-                                      errorBuilder:
-                                          (context, error, stackTrace) => Icon(
+                              child: Stack(
+                                children: [
+                                  Center(
+                                    child: animal.imagePath != null
+                                        ? Image.asset(
+                                            animal.imagePath!,
+                                            width: 300,
+                                            fit: BoxFit.contain,
+                                            errorBuilder:
+                                                (context, error, stackTrace) =>
+                                                    Icon(
+                                                      animal.iconData,
+                                                      size: 200,
+                                                      color: Colors.white
+                                                          .withOpacity(0.8),
+                                                    ),
+                                          )
+                                        : Icon(
                                             animal.iconData,
                                             size: 200,
                                             color: Colors.white.withOpacity(
                                               0.8,
                                             ),
                                           ),
-                                    )
-                                  : Icon(
-                                      animal.iconData,
-                                      size: 200,
-                                      color: Colors.white.withOpacity(0.8),
+                                  ),
+                                  Positioned(
+                                    bottom: 20,
+                                    right: 20,
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      child: InkWell(
+                                        onTap: () async {
+                                          ScaffoldMessenger.of(
+                                            context,
+                                          ).showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'Suara ${animal.name} diputar',
+                                              ),
+                                              duration: const Duration(
+                                                seconds: 1,
+                                              ),
+                                            ),
+                                          );
+                                          final player = AudioPlayer();
+                                          if (animal.name == 'Gajah') {
+                                            await player.play(
+                                              AssetSource(
+                                                'audio/suaragajah.mp3',
+                                              ),
+                                            );
+                                          } else if (animal.name == 'Singa') {
+                                            await player.play(
+                                              AssetSource(
+                                                'audio/suarasinga.mp3',
+                                              ),
+                                            );
+                                          } else if (animal.name ==
+                                              'Beruang Coklat') {
+                                            await player.play(
+                                              AssetSource(
+                                                'audio/suaraberuang.mp3',
+                                              ),
+                                            );
+                                          } else if (animal.name ==
+                                              'Burung Hantu') {
+                                            await player.play(
+                                              AssetSource(
+                                                'audio/suaraburunghantu.mp3',
+                                              ),
+                                            );
+                                          }
+                                        },
+                                        child: Container(
+                                          padding: const EdgeInsets.all(12),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            shape: BoxShape.circle,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.black.withOpacity(
+                                                  0.1,
+                                                ),
+                                                blurRadius: 10,
+                                                spreadRadius: 2,
+                                              ),
+                                            ],
+                                          ),
+                                          child: const Icon(
+                                            Icons.mic_none_rounded,
+                                            color: Colors.black87,
+                                            size: 28,
+                                          ),
+                                        ),
+                                      ),
                                     ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),

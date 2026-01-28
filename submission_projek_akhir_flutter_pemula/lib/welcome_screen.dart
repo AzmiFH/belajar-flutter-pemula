@@ -34,23 +34,44 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             });
           },
           children: [
-            buildImageContainer(
-              Colors.orange.shade50,
-              'Dunia Hewan',
-              'Selamat datang! Ayo belajar mengenal berbagai macam hewan yang lucu dan unik.',
-              'assets/images/banner1.jpg',
+            Container(
+              color: Colors.orange.shade50,
+              child: SafeArea(
+                child: SingleChildScrollView(
+                  child: buildImageContainer(
+                    Colors.orange.shade50,
+                    'Dunia Hewan',
+                    'Selamat datang! Ayo belajar mengenal berbagai macam hewan yang lucu dan unik.',
+                    'assets/images/banner1.jpg',
+                  ),
+                ),
+              ),
             ),
-            buildImageContainer(
-              Colors.green.shade50,
-              'Suara Alam',
-              'Dengarkan suara mereka dan ketahui habitat tempat tinggal mereka di alam liar.',
-              'assets/images/banner2.jpg',
+            Container(
+              color: Colors.green.shade50,
+              child: SafeArea(
+                child: SingleChildScrollView(
+                  child: buildImageContainer(
+                    Colors.green.shade50,
+                    'Suara Alam',
+                    'Dengarkan suara mereka dan ketahui habitat tempat tinggal mereka di alam liar.',
+                    'assets/images/banner2.jpg',
+                  ),
+                ),
+              ),
             ),
-            buildImageContainer(
-              Colors.blue.shade50,
-              'Fakta Menarik',
-              'Pelajari deskripsi dan keunikan setiap hewan untuk menambah pengetahuanmu.',
-              'assets/images/banner3.jpg',
+            Container(
+              color: Colors.blue.shade50,
+              child: SafeArea(
+                child: SingleChildScrollView(
+                  child: buildImageContainer(
+                    Colors.blue.shade50,
+                    'Fakta Menarik',
+                    'Pelajari deskripsi dan keunikan setiap hewan untuk menambah pengetahuanmu.',
+                    'assets/images/banner3.jpg',
+                  ),
+                ),
+              ),
             ),
           ],
         ),
