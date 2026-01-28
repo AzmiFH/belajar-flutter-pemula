@@ -219,7 +219,7 @@ class DetailMobilePage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lion_waiting_in_Namibia.jpg/640px-Lion_waiting_in_Namibia.jpg',
+                            'https://images.pexels.com/photos/6477378/pexels-photo-6477378.jpeg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -229,7 +229,7 @@ class DetailMobilePage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Okonjima_Lioness.jpg/640px-Okonjima_Lioness.jpg',
+                            'https://images.pexels.com/photos/3651335/pexels-photo-3651335.jpeg',
                             fit: BoxFit.cover,
                           ),
                         ),
